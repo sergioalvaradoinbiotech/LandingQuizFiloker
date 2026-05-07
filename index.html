@@ -3,29 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filoker | Diagnóstico Capilar</title>
+    <title>Diagnóstico Capilar Clínico | Filoker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <div class="top-bar">ENVÍO GRATIS EN COMPRAS SUPERIORES A $150.000 COP</div>
+
+    <header class="header-main">
         <div class="logo">FILOKER</div>
     </header>
 
-    <main class="hero">
-        <h1>Análisis del Folículo Capilar</h1>
-        <p class="subtitle">Descubre tu etapa de caída y recibe un protocolo dermatológico personalizado en 2 minutos.</p>
-        
-        <!-- CONTENEDOR DEL QUIZ -->
-        <div class="quiz-container">
-            <!-- REEMPLAZA ESTE DIV POR EL CÓDIGO DE EMBED QUE TE DA TYPEFORM -->
-            <!-- O simplemente cambia el data-tf-live="ID" por el tuyo -->
-            <div data-tf-live="TU_ID_AQUI"></div>
-            <script src="//embed.typeform.com/next/embed.js"></script>
-        </div>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">Evaluación Dermatológica Gratuita</span>
+                <h1>Detén la caída.<br><strong>Recupera tu densidad.</strong></h1>
+                <p class="subtitle">Realiza este diagnóstico clínico de 2 minutos y descubre el protocolo exacto que tu folículo necesita basado en la etapa de tu caída.</p>
+                
+                <div class="trust-badges">
+                    <div class="badge-item">🧪 Fórmulas Científicas</div>
+                    <div class="badge-item">👨‍⚕️ Grado Dermatológico</div>
+                    <div class="badge-item">⏱️ Resultados Visibles</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <div class="quiz-wrapper">
+                <div class="quiz-header">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div data-tf-live="TU_ID_AQUI" style="width:100%; height:100%;"></div>
+                <script src="//embed.typeform.com/next/embed.js"></script>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Filoker - Ciencia para la vida</p>
+    <footer class="footer-main">
+        <div class="logo footer-logo">FILOKER</div>
+        <p>&copy; 2026 Inbiotech SAS. Ciencia para la vida.</p>
     </footer>
 </body>
 </html>
