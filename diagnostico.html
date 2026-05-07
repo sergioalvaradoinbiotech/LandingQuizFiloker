@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Diagnóstico | Filoker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">FILOKER</div>
+    </header>
+
+    <main class="result-page">
+        <div id="resultado-container" class="fade-in">
+            <span class="badge">Análisis Completado</span>
+            <h1 id="etapa-titulo">Analizando resultados...</h1>
+            <p id="etapa-descripcion" class="description"></p>
+
+            <div class="product-card">
+                <p class="recommendation-label">PROTOCOLO RECOMENDADO</p>
+                <!-- Imagen del producto -->
+                <div class="img-wrapper">
+                    <img id="producto-img" src="" alt="Producto recomendado">
+                </div>
+                <h2 id="producto-nombre"></h2>
+                
+                <div class="benefits-list" id="beneficios">
+                    <!-- Los beneficios se cargan dinámicamente -->
+                </div>
+
+                <a id="cta-link" href="#" class="cta-button">SOLUCIÓNALO AHORA</a>
+            </div>
+            
+            <a href="index.html" class="back-link">Volver a realizar el test</a>
+        </div>
+    </main>
+
+    <script>
+        const data = {
+            "1": {
+                titulo: "Etapa 1: Caída Leve / Prevención",
+                desc: "Tu folículo muestra signos iniciales de debilitamiento. Estás en la etapa ideal para fortalecer la raíz y evitar que el cabello entre en fase de reposo permanente.",
+                producto: "Filoker Shampoo Anticaída",
+                img: "https://placehold.co/400x400/fff/000?text=Shampoo+Filoker", // Reemplaza con link de Shopify
+                link: "https://filoker.com/products/shampoo", // Reemplaza con link de Shopify
+                beneficios: ["✓ Limpieza profunda del folículo", "✓ Fortalece la fibra capilar", "✓ Acción antioxidante"]
+            },
+            "2": {
+                titulo: "Etapa 2: Caída Moderada",
+                desc: "Se observa un adelgazamiento de la fibra y pérdida de densidad. Es crucial reactivar la microcirculación para evitar la miniaturización del folículo.",
+                producto: "Kit Dúo: Shampoo + Acondicionador",
+                img: "https://placehold.co/400x400/fff/000?text=Duo+Filoker", 
+                link: "https://filoker.com/products/kit-duo",
+                beneficios: ["✓ Estimulación del crecimiento", "✓ Hidratación profunda sin peso", "✓ Protección contra el quiebre"]
+            },
+            "3": {
+                titulo: "Etapa 3: Caída Severa / Choque",
+                desc: "Tus folículos están bajo estrés oxidativo avanzado. Requieres un protocolo 360° que combine tratamiento tópico y nutrición interna para rescatar el cabello.",
+                producto: "Kit de Choque Total (Shampoo + Cápsulas + Acondicionador)",
+                img: "https://placehold.co/400x400/fff/000?text=Kit+Choque+Filoker",
+                link: "https://filoker.com/products/kit-choque",
+                beneficios: ["✓ Bloqueo de la caída sistémica", "✓ Nutrición folicular interna", "✓ Reactivación de zonas despobladas"]
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const etapa = params.get('etapa') || "1";
+        const res = data[etapa] || data["1"];
+
+        document.getElementById('etapa-titulo').innerText = res.titulo;
+        document.getElementById('etapa-descripcion').innerText = res.desc;
+        document.getElementById('producto-nombre').innerText = res.producto;
+        document.getElementById('producto-img').src = res.img;
+        document.getElementById('cta-link').href = res.link;
+
+        // Cargar beneficios
+        const bContainer = document.getElementById('beneficios');
+        res.beneficios.forEach(b => {
+            const span = document.createElement('p');
+            span.innerText = b;
+            bContainer.appendChild(span);
+        });
+    </script>
+</body>
+</html>
