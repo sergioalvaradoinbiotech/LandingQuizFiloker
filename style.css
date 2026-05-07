@@ -1,252 +1,173 @@
-/* DISEÑO DE LUJO FILOKER - NIVEL SERIE A */
 :root {
     --black: #000000;
     --white: #ffffff;
-    --filoker-dark: #0a1f16;
-    --filoker-green: #1a4f36;
-    --text-main: #1a1a1a;
-    --text-muted: #6e6e73;
-    --bg-light: #fbfbfd;
-    --shadow-premium: 0 30px 80px rgba(0,0,0,0.12);
-    --shadow-btn: 0 10px 20px rgba(26, 79, 54, 0.2);
+    --green-deep: #0a1a13;
+    --green-filoker: #1a4f36;
+    --text-muted: #86868b;
+    --bg-light: #f5f5f7;
 }
 
+/* El reset que faltaba para que nada se rompa */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--white);
-    color: var(--text-main);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+    color: var(--black);
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Utilitarios de contenedor */
-.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-.container-full { max-width: 100%; padding: 0 3rem; }
+/* LOS CONTENEDORES (El error que cometí) */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 10; }
+.container-full { max-width: 100%; margin: 0 auto; padding: 0 40px; }
 
-/* Announcement Bar Pro */
+/* Announcement */
 .announcement-bar {
-    background: var(--filoker-dark);
+    background: var(--black);
     color: var(--white);
+    padding: 10px;
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 2px;
-    padding: 10px 0;
-    position: relative;
-    z-index: 100;
 }
 
-/* Header Minimalista */
+/* Header */
 .main-header {
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
+    padding: 25px 0;
     border-bottom: 1px solid #f0f0f0;
-    padding: 20px 0;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
-    z-index: 99;
+    z-index: 100;
 }
-.main-header .logo {
-    font-weight: 900;
-    letter-spacing: 7px;
-    font-size: 1.6rem;
-    color: var(--black);
-}
-
-/* --- HERO SPLIT SECTION (BREAKTHROUGH DESIGN) --- */
-.hero-split {
-    background-color: var(--bg-light);
-    background-image: 
-        radial-gradient(at 10% 20%, rgba(26, 79, 54, 0.05) 0px, transparent 50%),
-        radial-gradient(at 90% 80%, rgba(10, 31, 22, 0.03) 0px, transparent 50%);
-    padding: 100px 0 60px;
-    position: relative;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 80px;
+.header-flex {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
-
-.status-badge {
-    display: inline-block;
-    background: #eaf1ed;
-    color: var(--filoker-green);
-    border-radius: 50px;
-    padding: 6px 16px;
-    font-size: 0.8rem;
+.logo { font-weight: 900; letter-spacing: 6px; font-size: 1.5rem; }
+.lab-badge {
+    font-size: 0.65rem;
+    border: 1px solid #000;
+    padding: 4px 10px;
     font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
 }
 
-h1.split-title {
+/* Hero Section */
+.hero-premium {
+    padding: 100px 0 60px;
+    background: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+}
+.hero-content-wrapper { max-width: 650px; position: relative; z-index: 2; }
+.clinical-tag {
+    color: var(--green-filoker);
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 15px;
+}
+h1 {
     font-size: 3.8rem;
-    font-weight: 300;
+    font-weight: 900;
     line-height: 1.1;
     letter-spacing: -2px;
-    color: var(--black);
     margin-bottom: 30px;
 }
-h1 .highlight {
-    font-weight: 900;
-    color: var(--filoker-dark);
-}
+h1 .highlight { color: var(--green-filoker); }
+p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 40px; }
 
-.hero-p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    max-width: 550px;
-    margin-bottom: 40px;
-}
-
-/* Botón Pro con Micro-interacción */
-.btn-primary-pro {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--filoker-green);
+.btn-cta-pro {
+    background: var(--black);
     color: var(--white);
     text-decoration: none;
+    padding: 20px 40px;
     font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    padding: 20px 45px;
-    border-radius: 6px;
-    box-shadow: var(--shadow-btn);
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: 0.3s;
+    border-radius: 4px;
 }
+.btn-cta-pro:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
-.btn-primary-pro .arrow {
-    transition: transform 0.3s ease;
-}
-
-.btn-primary-pro:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(26, 79, 54, 0.3);
-}
-
-.btn-primary-pro:hover .arrow {
-    transform: translateX(5px);
-}
-
-/* Hero Visual Texture (Placeholder pro) */
-.hero-visual {
+.hero-bg-accent {
+    position: absolute;
+    right: -10%;
+    top: 0;
+    width: 50%;
     height: 100%;
-    min-height: 450px;
-    position: relative;
+    background: linear-gradient(135deg, rgba(26,79,54,0.05) 0%, rgba(255,255,255,0) 100%);
+    transform: skewX(-15deg);
+    z-index: 1;
 }
 
-.visual-clinical-texture {
-    width: 100%;
-    height: 100%;
-    background-color: var(--white);
-    border-radius: 20px;
-    box-shadow: var(--shadow-premium);
-    background-image: 
-        repeating-linear-gradient(45deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 1px, transparent 1px, transparent 15px),
-        linear-gradient(135deg, rgba(26, 79, 54, 0.1) 0%, rgba(255,255,255,0) 60%);
-    overflow: hidden;
+/* Authority Cards */
+.authority-section { padding: 80px 0; }
+.authority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
-
-/* Trust Bar (Elegant Movement) */
-.trust-bar {
-    background: var(--white);
-    padding: 30px 0;
-    border-bottom: 1px solid #f0f0f0;
+.auth-card {
+    padding: 40px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    transition: 0.3s;
 }
+.auth-card:hover { background: #000; color: #fff; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.auth-card .number { font-weight: 900; font-size: 0.8rem; margin-bottom: 20px; display: block; opacity: 0.3; }
+.auth-card h3 { font-size: 1.2rem; margin-bottom: 15px; }
+.auth-card p { font-size: 0.95rem; margin-bottom: 0; opacity: 0.8; }
 
-.trust-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    color: var(--filoker-dark);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.trust-item:nth-child(even) { color: #ccc; }
-
-/* QUIZ PRO SECTION */
-.quiz-pro-section {
-    background-color: var(--white);
-    padding: 100px 0 120px;
-}
-
-.quiz-browser-frame {
+/* Browser UI para el Quiz */
+.quiz-visual-section { padding: 60px 0 120px; }
+.browser-ui {
     background: var(--white);
     border-radius: 12px;
-    box-shadow: var(--shadow-premium);
-    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.15);
     overflow: hidden;
+    border: 1px solid #eee;
 }
-
-.frame-header {
-    background: #f8f8f9;
-    padding: 15px 25px;
-    border-bottom: 1px solid #eeeeef;
+.browser-header {
+    background: #f1f1f2;
+    padding: 15px 20px;
     display: grid;
-    grid-template-columns: 60px 1fr 60px;
+    grid-template-columns: 100px 1fr 100px;
     align-items: center;
 }
+.dots { display: flex; gap: 8px; }
+.dots span { width: 10px; height: 10px; border-radius: 50%; }
+.dots span:nth-child(1) { background: #ff5f56; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #27c93f; }
 
-.frame-dots { display: flex; gap: 8px; }
-.frame-dots span { width: 12px; height: 12px; border-radius: 50%; }
-.frame-dots span:nth-child(1) { background: #ff5f57; }
-.frame-dots span:nth-child(2) { background: #febc2e; }
-.frame-dots span:nth-child(3) { background: #28c840; }
-
-.frame-url {
-    background: var(--white);
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    padding: 6px 0;
-    border-radius: 4px;
+.address-bar {
+    background: #fff;
+    font-size: 0.75rem;
+    padding: 6px;
     text-align: center;
-    border: 1px solid #e1e1e3;
+    border-radius: 6px;
+    color: #999;
+    font-family: monospace;
 }
+.quiz-container-pro { height: 700px; }
 
-.quiz-embed-wrapper {
-    height: 680px;
-    position: relative;
-}
-
-/* Footer Pro */
-.main-footer-pro {
-    background: var(--filoker-dark);
-    color: var(--text-muted);
-    padding: 60px 0;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer-logo-pro {
-    color: rgba(255,255,255,0.3);
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-}
-
-.footer-bottom-pro { font-size: 0.8rem; color: #555; }
-
-/* RESPONSIVE BRUTAL */
-@media (max-width: 1024px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
-    .hero-p { margin: 0 auto 40px; }
-    h1.split-title { font-size: 3rem; }
-    .hero-visual { min-height: 250px; }
-}
+/* Footer */
+.footer-clean { background: #000; color: #fff; padding: 80px 0; text-align: center; }
+.footer-clean p { font-size: 0.85rem; color: #888; max-width: 500px; margin: 20px auto; }
+.copy { font-weight: 700; color: #fff !important; margin-top: 40px; font-size: 0.75rem; }
 
 @media (max-width: 768px) {
-    .container-full { padding: 0 1.5rem; }
-    h1.split-title { font-size: 2.2rem; }
-    .hero-p { font-size: 1rem; }
-    .btn-primary-pro { padding: 18px 30px; font-size: 0.9rem; }
-    .trust-grid { flex-wrap: wrap; gap: 15px 25px; justify-content: center; }
+    h1 { font-size: 2.5rem; letter-spacing: -1px; }
+    .authority-grid { grid-template-columns: 1fr; }
+    .hero-premium { padding: 60px 0; text-align: center; }
+    .hero-content-wrapper { margin: 0 auto; }
+    .hero-bg-accent { display: none; }
 }
