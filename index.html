@@ -3,50 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnóstico Capilar Clínico | Filoker</title>
+    <title>Protocolo de Regeneración Capilar | Filoker Clínico</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top-bar">ENVÍO GRATIS EN COMPRAS SUPERIORES A $150.000 COP</div>
+    <div class="announcement-bar">
+        <span>CIENCIA PARA LA VIDA • ENVÍO SIN COSTO > $150.000 COP • CIENCIA PARA LA VIDA</span>
+    </div>
 
-    <header class="header-main">
-        <div class="logo">FILOKER</div>
+    <header class="main-header">
+        <div class="container-full">
+            <div class="logo">FILOKER</div>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <span class="eyebrow">Evaluación Dermatológica Gratuita</span>
-                <h1>Detén la caída.<br><strong>Recupera tu densidad.</strong></h1>
-                <p class="subtitle">Realiza este diagnóstico clínico de 2 minutos y descubre el protocolo exacto que tu folículo necesita basado en la etapa de tu caída.</p>
-                
-                <div class="trust-badges">
-                    <div class="badge-item">🧪 Fórmulas Científicas</div>
-                    <div class="badge-item">👨‍⚕️ Grado Dermatológico</div>
-                    <div class="badge-item">⏱️ Resultados Visibles</div>
+        <section class="hero-split">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text" data-aos="fade-right" data-aos-delay="100">
+                        <span class="status-badge">Análisis Dermatológico Digital</span>
+                        <h1 class="split-title">
+                            No solo detengas la caída. <br>
+                            <span class="highlight">Reconstruye desde la raíz.</span>
+                        </h1>
+                        <p class="hero-p">Basado en tu biología capilar única. Nuestro algoritmo clínico determina tu estadio de alopecia en 2 minutos para recetarte tu protocolo de regeneración folicular.</p>
+                        
+                        <div class="hero-ctas">
+                            <a href="#quiz-anchor" class="btn-primary-pro scroll-link">INICIAR MI DIAGNÓSTICO <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-visual" data-aos="fade-left" data-aos-delay="300">
+                        <div class="visual-clinical-texture"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="quiz-section">
-            <div class="quiz-wrapper">
-                <div class="quiz-header">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+        <section class="trust-bar" data-aos="fade-up" data-aos-offset="50">
+            <div class="container-full">
+                <div class="trust-grid">
+                    <div class="trust-item">Fórmulas Biotecnológicas</div>
+                    <div class="trust-item">•</div>
+                    <div class="trust-item">Grado Clínico</div>
+                    <div class="trust-item">•</div>
+                    <div class="trust-item">Eficacia Probada</div>
                 </div>
-                <div data-tf-live="TU_ID_AQUI" style="width:100%; height:100%;"></div>
-                <script src="//embed.typeform.com/next/embed.js"></script>
+            </div>
+        </section>
+
+        <section id="quiz-anchor" class="quiz-pro-section">
+            <div class="container">
+                <div class="quiz-browser-frame" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="frame-header">
+                        <div class="frame-dots"><span></span><span></span><span></span></div>
+                        <div class="frame-url">filoker-lab.diagnostico_capilar</div>
+                    </div>
+                    <div class="quiz-embed-wrapper">
+                        <div data-tf-live="TU_ID_AQUI" style="width:100%; height:100%;"></div>
+                        <script src="//embed.typeform.com/next/embed.js"></script>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer-main">
-        <div class="logo footer-logo">FILOKER</div>
-        <p>&copy; 2026 Inbiotech SAS. Ciencia para la vida.</p>
+    <footer class="main-footer-pro">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="logo footer-logo-pro">FILOKER</div>
+                <div class="footer-bottom-pro">
+                    <p>&copy; 2026 INBIOTECH SAS. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar animaciones
+        AOS.init({
+            duration: 900,
+            easing: 'ease-out-quad',
+            once: true, // solo se animan una vez al bajar
+            offset: 120
+        });
+
+        // Smooth scroll para el botón
+        document.querySelector('.scroll-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
