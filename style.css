@@ -1,13 +1,11 @@
 :root {
     --black: #000000;
     --white: #ffffff;
-    --green-deep: #0a1a13;
     --green-filoker: #1a4f36;
     --text-muted: #86868b;
     --bg-light: #f5f5f7;
 }
 
-/* El reset que faltaba para que nada se rompa */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -15,73 +13,41 @@ body {
     background-color: var(--white);
     color: var(--black);
     overflow-x: hidden;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
-/* LOS CONTENEDORES (El error que cometí) */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 10; }
-.container-full { max-width: 100%; margin: 0 auto; padding: 0 40px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.container-full { max-width: 100%; padding: 0 40px; }
 
-/* Announcement */
+/* Announcement Bar */
 .announcement-bar {
     background: var(--black);
     color: var(--white);
     padding: 10px;
     text-align: center;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 2px;
 }
 
 /* Header */
-.main-header {
-    padding: 25px 0;
-    border-bottom: 1px solid #f0f0f0;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-.header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.main-header { padding: 25px 0; border-bottom: 1px solid #f0f0f0; }
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-weight: 900; letter-spacing: 6px; font-size: 1.5rem; }
-.lab-badge {
-    font-size: 0.65rem;
-    border: 1px solid #000;
-    padding: 4px 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
+.lab-badge { font-size: 0.7rem; border: 1px solid #000; padding: 4px 10px; font-weight: 700; letter-spacing: 1px; }
 
-/* Hero Section */
-.hero-premium {
-    padding: 100px 0 60px;
-    background: var(--bg-light);
-    position: relative;
-    overflow: hidden;
+/* --- HERO BANNER (RESTAURADO Y PRO) --- */
+.hero-banner {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+    background-image: linear-gradient(135deg, rgba(26,79,54,0.05) 0%, rgba(255,255,255,0) 100%);
+    text-align: center;
 }
-.hero-content-wrapper { max-width: 650px; position: relative; z-index: 2; }
-.clinical-tag {
-    color: var(--green-filoker);
-    font-weight: 800;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 15px;
-}
-h1 {
-    font-size: 3.8rem;
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-}
+.hero-content { max-width: 700px; margin: 0 auto; }
+.clinical-tag { color: var(--green-filoker); font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px; display: block; }
+h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; letter-spacing: -2px; margin-bottom: 25px; }
 h1 .highlight { color: var(--green-filoker); }
-p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 40px; }
+.hero-banner p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
 
 .btn-cta-pro {
     background: var(--black);
@@ -91,55 +57,25 @@ p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 40px; }
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 2px;
-    display: inline-block;
     transition: 0.3s;
     border-radius: 4px;
 }
-.btn-cta-pro:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+.btn-cta-pro:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-.hero-bg-accent {
-    position: absolute;
-    right: -10%;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(26,79,54,0.05) 0%, rgba(255,255,255,0) 100%);
-    transform: skewX(-15deg);
-    z-index: 1;
-}
-
-/* Authority Cards */
-.authority-section { padding: 80px 0; }
-.authority-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-.auth-card {
-    padding: 40px;
-    background: var(--bg-light);
-    border-radius: 8px;
-    transition: 0.3s;
-}
-.auth-card:hover { background: #000; color: #fff; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-.auth-card .number { font-weight: 900; font-size: 0.8rem; margin-bottom: 20px; display: block; opacity: 0.3; }
-.auth-card h3 { font-size: 1.2rem; margin-bottom: 15px; }
-.auth-card p { font-size: 0.95rem; margin-bottom: 0; opacity: 0.8; }
-
-/* Browser UI para el Quiz */
-.quiz-visual-section { padding: 60px 0 120px; }
-.browser-ui {
+/* --- SECCIÓN DEL QUIZ (LA CURA) --- */
+.quiz-section { padding: 80px 0 120px; }
+.quiz-browser-frame {
     background: var(--white);
     border-radius: 12px;
     box-shadow: 0 40px 100px rgba(0,0,0,0.15);
     overflow: hidden;
     border: 1px solid #eee;
 }
-.browser-header {
+.frame-header {
     background: #f1f1f2;
     padding: 15px 20px;
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 80px 1fr 80px;
     align-items: center;
 }
 .dots { display: flex; gap: 8px; }
@@ -147,27 +83,21 @@ p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 40px; }
 .dots span:nth-child(1) { background: #ff5f56; }
 .dots span:nth-child(2) { background: #ffbd2e; }
 .dots span:nth-child(3) { background: #27c93f; }
+.address { background: #fff; font-size: 0.8rem; padding: 6px; text-align: center; border-radius: 6px; color: #999; font-family: monospace; }
 
-.address-bar {
-    background: #fff;
-    font-size: 0.75rem;
-    padding: 6px;
-    text-align: center;
-    border-radius: 6px;
-    color: #999;
-    font-family: monospace;
+/* EL ARREGLO FINAL: ALTURA FIJA OBLIGATORIA */
+.typeform-widget-container {
+    height: 750px; /* <--- ESTO ES LO QUE ARREGLA EL SCROLL INFINITO */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
-.quiz-container-pro { height: 700px; }
 
-/* Footer */
-.footer-clean { background: #000; color: #fff; padding: 80px 0; text-align: center; }
-.footer-clean p { font-size: 0.85rem; color: #888; max-width: 500px; margin: 20px auto; }
-.copy { font-weight: 700; color: #fff !important; margin-top: 40px; font-size: 0.75rem; }
+/* Footer Simple */
+.footer-simple { padding: 50px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; letter-spacing: -1px; }
-    .authority-grid { grid-template-columns: 1fr; }
-    .hero-premium { padding: 60px 0; text-align: center; }
-    .hero-content-wrapper { margin: 0 auto; }
-    .hero-bg-accent { display: none; }
+    .hero-banner { padding: 60px 0; }
+    .typeform-widget-container { height: 600px; } /* Un poco más bajito en móvil */
 }
